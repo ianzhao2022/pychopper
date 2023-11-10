@@ -506,7 +506,7 @@ def main():
     if args.S is not None or args.r is not None:
         stdf = _process_stats(st)
         if tune_df is not None:
-            stdf = stdf.append(pd.DataFrame(tune_df))
+            stdf = pd.concat([stdf, pd.DataFrame(tune_df)])
 
     _detect_anomalies(st, config)
 
